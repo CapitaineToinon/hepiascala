@@ -26,14 +26,7 @@ def fac(n: Long): Long =
 //         a := t
 //     return a
 def gcd(a: Int, b: Int): Int =
-  var a1 = a
-  var b1 = b
-  while (b1 != 0) {
-    val t = b1
-    b1 = a1 % b1
-    a1 = t
-  }
-  a1
+  if (b == 0) a else gcd(b, a % b)
 
 // Calcule l'aire d'un cercle au quel on aurait enlever le carré inscrit
 def weirdShapeArea(radius: Double) = {
@@ -53,12 +46,12 @@ def distance(x1: Double, y1: Double, x2: Double, y2: Double) =
 // Essayer de comprendre l'erreur et de la résoudre
 // Le résultat final n'a pas d'importance
 def foobar(): Int = {
-  var x = 2
-  x = x + 1
-  if (x == 3)
-    println(s"Trois: ${x}")
-    x
-  else x
+  val x = 2
+  val x2 = x + 1
+  if (x2 == 3)
+    println(s"Trois: ${x2}")
+    x2
+  else x2
 }
 
 @main
