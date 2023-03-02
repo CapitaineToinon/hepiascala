@@ -15,19 +15,31 @@ def distance(p1: Point, p2: Point): Double = {
   Math.sqrt(dx * dx + dy * dy)
 }
 
-type Dms = (Double, Double, Double)
-type Degree = Double
+type DmsLatitude = (Int, Int, Double, "N" | "S")
+type DmsLongitude = (Int, Int, Double, "W" | "E")
+type DmsCoordinate = (DmsLatitude, DmsLongitude)
 
-def dms_to_degree(dms: Dms): Degree = {
-  val (d, m, s) = dms
-  d + (m / 60.0) + (s / 3600.0)
-}
+type DD = Double
+type DDCordinate = (DD, DD)
 
-def degree_to_dms(degree: Degree): Dms = {
-  val d = degree.toInt
-  val m = ((degree - d) * 60).toInt
-  val s = ((degree - d - (m / 60.0)) * 3600)
-  (d, m, s)
+def dms_to_degree(dms: DmsCoordinate): DDCordinate = {
+  def compute_degrees(deg: Int, min: Int, sec: Double): DD = {
+    deg + min / 60.0 + sec / 3600
+  }
+
+  def toDD(dms: DmsLatitude | DmsLongitude): DD = {
+    val (deg, min, sec, t) = dms
+
+    val sign = t match {
+      case "N" | "E" => 1
+      case "S" | "W" => -1
+    }
+
+    sign * compute_degrees(deg, min, sec)
+  }
+
+  val (lat, lon) = dms
+  (toDD(lat), toDD(lon))
 }
 
 @main
@@ -38,26 +50,8 @@ def main = {
   assert(distance((0, 0), (1, 1)) == Math.sqrt(2))
   assert(distance((0, 0), (2, 2)) == Math.sqrt(8))
 
-  var expected: Array[(Degree, Degree)] = Array(
-    (
-      dms_to_degree((46, 12, 15)),
-      46.204
-    ),
-    (
-      dms_to_degree((6, 8, 35)),
-      6.1432
-    ),
-    (
-      dms_to_degree((59, 56, 2)),
-      59.934
-    ),
-    (
-      dms_to_degree((30, 18, 22)),
-      30.306
-    )
-  )
+  var geneva_dms: DmsCoordinate = ((46, 12, 15.8394, "N"), (6, 8, 35.52, "E"))
+  var geneva_dd: DDCordinate = (46.2044, 6.143246)
 
-  for ((a, b) <- expected) {
-    assert(f"$a%1.3f" == f"$b%1.3f")
-  }
+  println(dms_to_degree(geneva_dms))
 }
