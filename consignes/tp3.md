@@ -9,7 +9,7 @@ Les **buts** de ce TP sont:
 Implémentez la fonction `swap`. Celle-ci inverse les arguments du tuple.
 
 ```scala
-def swap( nums: (Int,Int) ): Int = ???
+def swap( nums: (Int,Int) ): (Int,Int) = ???
 
 swap( (i,j) ) == (j,i) //Pour tout i, j
 swap( swap( x ) ) == x //Pour tout x
