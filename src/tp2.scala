@@ -1,4 +1,4 @@
-package ch.hepia.tp
+package ch.hepia.tp2
 
 def dumbCount1(n: Int): Int =
   if (n == 0) 0 else 1 + dumbCount1(n - 1)
@@ -10,7 +10,7 @@ def dumbCount2(n: Int): Int = {
 }
 
 @main
-def tp2(n: Int) = {
+def main(n: Int) = {
   // println(dumbCount1(n))
   println(dumbCount2(n))
 }

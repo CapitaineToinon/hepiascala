@@ -1,4 +1,4 @@
-package ch.hepia.tp
+package ch.hepia.tp1
 
 // Calcule la valeur absolue d'un double
 def abs(x: Double): Double =
@@ -55,7 +55,7 @@ def foobar(): Int = {
 }
 
 @main
-def tp1 = {
+def main = {
   println("TP1 (tout doit être à 'true'):")
   println(s"  Fonction abs: ${abs(-3.1) * sign(-3.1) == -3.1}")
   println(s"  Fonction fac: ${fac(8) == 40320}")

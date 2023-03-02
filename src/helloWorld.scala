@@ -1,4 +1,4 @@
-package ch.hepia.tp
+package ch.hepia.helloWorld
 
 @main
-def hello = println("Hello, world ?")
+def main = println("Hello, world ?")
