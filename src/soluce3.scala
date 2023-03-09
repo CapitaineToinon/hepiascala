@@ -38,7 +38,8 @@ def convert(pos: DMSCoord): DDCoord = {
 }
 
 def convert_(pos: DMSCoord): DDCoord = {
-  def toDD(d: Int, m: Int, s: Double, dir: String) = {
+  def toDD(dms: DMS) = {
+    var (d, m, s, dir) = dms
     val sign = dir match {
       case "N" | "E" => 1.0
       case "S" | "W" => -1.0
@@ -46,5 +47,5 @@ def convert_(pos: DMSCoord): DDCoord = {
     sign * (d + m / 60.0 + s / 3600)
   }
   val (lat, long) = pos
-  // ( toDD(lat), toDD(long) )
+  (toDD(lat), toDD(long))
 }
