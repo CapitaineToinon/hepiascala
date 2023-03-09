@@ -1,4 +1,4 @@
 package ch.hepia.tp
 
 @main
-def hello = println("Hello, world ?")
+def hello = println("Héllo, wörłð ?")

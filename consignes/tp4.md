@@ -9,7 +9,7 @@ Les **buts** de ce TP sont:
 Une personne est représentée par:
 
 - son prénom
-- son mom
+- son nom
 - sa date de naissance
 - son adresse postale:
   - rue et numéro
