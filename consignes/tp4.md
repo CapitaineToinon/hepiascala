@@ -28,7 +28,7 @@ case class Point(x:Int,y:Int)
 case class Segment(p1:Point,p2:Point)
 ```
   
-Implémenter une méthode la méthode suivante:
+Implémenter la méthode suivante:
 
 ```scala
 def orientation( s: Segment ): (Boolean,Boolean)
