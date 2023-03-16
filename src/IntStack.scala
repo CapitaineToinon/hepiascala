@@ -36,13 +36,6 @@ enum IntStack {
     def pop: (Int,IntStack) =
       throw new NoSuchElementException("Empty stack")
 
-    /*
-     * Prend l'élément du sommet de la pile et
-     * le place en bas de la pile. Si la pile est
-     * vide, ne fait rien.
-     * A IMPLEMENTER
-     */
-    def rotate: IntStack = Empty
 
     /*
      * Retourne l'élément tout en bas de la pile (sans le supprimer).
@@ -66,4 +59,11 @@ enum IntStack {
      */
     def pushAll( that: IntStack ): IntStack = Empty
 
+/*
+     * Prend l'élément du sommet de la pile et
+     * le place en bas de la pile. Si la pile est
+     * vide, ne fait rien.
+     * A IMPLEMENTER
+     */
+    def rotate: IntStack = Empty
 }
