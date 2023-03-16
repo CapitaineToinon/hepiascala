@@ -7,7 +7,7 @@ lazy val root = project
     version := "2.1.0",
     scalaVersion := scala3Version,
     libraryDependencies ++= Seq(
-      // Dépendences
+      "org.scalatest" %% "scalatest" % "3.2.11" % Test
     ),
     Compile / scalaSource := baseDirectory.value / "src",
     Test / scalaSource := baseDirectory.value / "test-src"
