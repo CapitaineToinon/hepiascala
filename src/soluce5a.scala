@@ -9,7 +9,7 @@ package ch.hepia.tp.soluce5a
  */
 
 enum TrafficLight {
-    case Green
-    case Red( plusYellow: Boolean )
-    case Yellow( blink: Boolean )
+  case Green
+  case Red(plusYellow: Boolean)
+  case Yellow(blink: Boolean)
 }
