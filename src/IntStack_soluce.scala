@@ -1,4 +1,4 @@
-package ch.hepia.tp
+package ch.hepia.tp.soluce
 
 /*
  * Représente une pile d'entiers
