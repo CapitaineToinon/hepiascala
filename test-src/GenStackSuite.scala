@@ -29,10 +29,10 @@ class GenStackSuite extends AnyFunSuite {
 
   test("Zip") {
     val s123 = Empty.push(3).push(2).push(1)
-    val sABC = Empty.push("A").push("B").push("C")
+    val sABC = Empty.push("C").push("B").push("A")
     assert( s123.zip(s123) == Empty.push((3,3)).push((2,2)).push((1,1)))
     assert( s123.zip( Empty.push(true) ) == Empty.push((1,true)) )
     assert( Empty.push(true).zip(s123) == Empty.push((true,1)) )
-    assert( sABC.zip(s123) == Empty.push(("C",1)).push(("B",2)).push(("A",3)) )
+    assert( sABC.zip(s123) == Empty.push(("C",3)).push(("B",2)).push(("A",1)) )
   }
 }

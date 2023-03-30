@@ -1,4 +1,4 @@
-package ch.hepia.tp6
+package ch.hepia.tp6.soluce
 
 enum Stack[+T] {
   case Elem( top: T, rest: Stack[T] )
@@ -106,7 +106,7 @@ enum Stack[+T] {
           case Empty => result
           case Elem(t,rest2) => loop( rest2, Elem( f(t), result ) )
         }
-      loop(this,f).reverse
+      loop(this,Empty).reverse
     }
 
     /*
